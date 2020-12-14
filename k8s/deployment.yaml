@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sample-book-api
+  namespace: sample-api
+  labels:
+    app: sample-book-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sample-book-api
+  template:
+    metadata:
+      labels:
+        app: sample-book-api
+    spec:
+      containers:
+        - image: kymalab/sample-book-api
+          name: sample-book-api
+          ports:
+            - name: http
+              containerPort: 8000

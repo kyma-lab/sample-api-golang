@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-sample-book-api
+  namespace: sample-api
+  #Only for information purpose
+  labels:
+    app: sample-book-api
+    service: service-sample-book-api
+spec:
+  ports:
+    - port: 80
+      targetPort: 8000
+      protocol: TCP
+      name: http
+  selector:
+    app: sample-book-api

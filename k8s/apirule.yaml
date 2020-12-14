@@ -1,0 +1,26 @@
+apiVersion: gateway.kyma-project.io/v1alpha1
+kind: APIRule
+metadata:
+  name:  apirule-sample-book-api
+  namespace: sample-api
+spec:
+  gateway: kyma-gateway.kyma-system.svc.cluster.local
+  rules:
+    - path: /api/books.*
+      accessStrategies:
+        - config: {}
+          handler: noop
+      methods:
+        - GET
+        - POST
+        - PUT
+        - DELETE
+  service:
+    host: booksapi
+    name: service-sample-book-api
+    port: 80
+
+
+
+
+
